@@ -1,0 +1,17 @@
+<%= form_for(@blog) do |f| %>
+  <div>
+    <%= f.label :title, 'Blog Title' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :url, 'Site URL' %>
+    <%= f.text_field :url %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
