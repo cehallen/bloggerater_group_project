@@ -10,22 +10,32 @@ feature 'authenticated user signing out', %q{
 
   context 'signed in, want to sign out' do
     it 'should sign out the user' do
-      visit users_path
+      @user = FactoryGirl.create(:user)
+      visit new_user_session_path
+      fill_in "Email", with: @user.email
+      fill_in "Password", with: @user.password
+      within "#new_user" do
+        click_on "Sign in"
+      end
+
+      click_on "Sign Out"
+
+      expect(page).to have_content('Signed out successfully')
+      expect(page).to have_content('Sign In')
     end
   end
 
   context 'signed out user' do
 
+    # it 'should prevent user from accessing creation pages' do
+    #   visit 
+    # end
 
+    # it 'should not allow user to rate' do
+    # end
 
-    it 'should prevent user from accessing creation pages' do
-    end
-
-    it 'should not allow user to rate' do
-    end
-
-    it 'should not allow user to vote' do
-    end
+    # it 'should not allow user to vote' do
+    # end
 
   end
 
