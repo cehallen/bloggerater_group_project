@@ -41,6 +41,8 @@ feature 'user trying to make blog post', %q{
       click_on 'Create Blog'
 
       expect(page).to_not have_content("Blog Added to Listing")
+      expect(page).to have_content("Title can't be blank")
+      expect(page).to have_content("Url can't be blank")
     end
 
   end

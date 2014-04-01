@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td><%= link_to @blog.title, @blog.url %></td>
+    <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
+    <td><%= link_to "Delete", blog_path(@blog),
+      method: :delete %></td>
+  </tr>
+   
+</table>
+
+<p><%= @blog.description %></p>
+
+<p><%= link_to 'Blogs Home', blogs_path %></p>
