@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-feature 'user trying to make blog post', %q{
+feature 'user trying to make reviews on blog post', %q{
   As a registered user
-  I can create a post for a blog website
-  So people can review, rate, and vote on it
+  I can create a review for a for a blog website
+  So people can see my opinion
   } do
 
   # AC:
-  # I have to enter in a email
-  # I have to enter in a password
-  # What happens when you're not signed in?
+  # I have to enter in a comment
+  # I can see my reviews in the blog page
+
   before(:each) do
     @user = FactoryGirl.create(:user)
 
