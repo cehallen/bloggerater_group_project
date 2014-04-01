@@ -6,8 +6,6 @@ feature 'viewer signing up', %q{
   So i can rate blogs} do
 
   # I must enter a previously unregistered email
-  # I can optionally enter a first name
-  # I can optionally enter a last name
 
   context 'filling out user information' do
     # before(:each) do
