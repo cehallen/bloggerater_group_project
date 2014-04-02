@@ -45,7 +45,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'quiet_assets'
   gem 'capybara'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'launchy'
 end
 
