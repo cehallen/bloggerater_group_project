@@ -11,14 +11,7 @@ So people can read the best reviews} do
 # A user may only vote on a review once
 # Seperate: Sorting Reviews
   before(:each) do
-    @user = FactoryGirl.create(:user)
-
-    visit new_user_session_path
-    fill_in "Email", with: @user.email
-    fill_in "Password", with: @user.password
-    within "#new_user" do
-      click_on "Sign in"
-    end
+    sign_in_as(FactoryGirl.create(:user))
   end
 
   context 'authenticated user voting' do
@@ -37,7 +30,8 @@ So people can read the best reviews} do
 
     it 'prevents user from voting more than once' do
       click_on "Up"
-      expect(@review.votes).to eq(true)
+      click_on "Up"
+      expect(@review.votes.count).to eq(1)
     end
 
   end

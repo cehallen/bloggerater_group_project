@@ -15,8 +15,6 @@ describe Blog do
 
     it 'give an error when url is not unique' do
       blog = Blog.create!(url: "www.url.com", title: "title", user: FactoryGirl.build(:user))
-      
-      
     end
 
   end
@@ -24,6 +22,7 @@ describe Blog do
   describe "Association Tests" do
 
     it { should belong_to :user }
+    it { should have_many :reviews }
     
   end
 

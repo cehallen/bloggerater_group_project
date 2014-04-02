@@ -10,4 +10,9 @@
 
 <p><%= @blog.description %></p>
 
-<p><%= link_to 'Blogs Home', blogs_path %></p>
+<%= render 'blogs/review' %>
+
+<% @reviews.each do |review| %>
+  <%= review.reviewer.email %>
+  <%= review.comment %>
+<% end %>
