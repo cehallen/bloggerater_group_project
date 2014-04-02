@@ -25,7 +25,6 @@ I can update my post
       visit blog_path(@blog)
 
       click_on 'Edit' 
-# save_and_open_page
       fill_in 'Blog Title', with: 'A title'
       fill_in 'Site URL', with: 'www.blogs.com'
 

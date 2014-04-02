@@ -21,10 +21,7 @@ feature 'viewing a blog', %Q{
       click_on 'Moderation Pays Off for a Far-Right Party in France'
 
       expect(page).to have_content("Moderation Pays Off for a Far-Right Party in France")
-      expect(page).to have_css('a[href = "http://www.nytimes.com/2014/04/02/world/europe/moderation-pays-off-for-a-far-right-party-in-france.html?hp&_r=0"]')
-      # or
-      # expect(page).to have_link("Moderation Pays Off for a Far-Right Party in France", 
-      #   href: "http://www.nytimes.com/2014/04/02/world/europe/moderation-pays-off-for-a-far-right-party-in-france.html?hp&_r=0")
+      expect(page).to have_css('a[href = "http://www.nytimes.com/2014/04/02/world/europe/moderation-pays-off-for-a-far-right-party-in-france.html?hp&_r=0"]')      #   href: "http://www.nytimes.com/2014/04/02/world/europe/moderation-pays-off-for-a-far-right-party-in-france.html?hp&_r=0")
     end
   end
 
