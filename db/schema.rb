@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140401204226) do
+=======
+ActiveRecord::Schema.define(version: 20140401231143) do
+>>>>>>> 33f3998dad019bcb02d0b027b32146ae6c9ee869
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140401204226) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "ratings", force: true do |t|
     t.integer  "rating",     null: false
     t.integer  "rater_id",   null: false
@@ -41,6 +46,9 @@ ActiveRecord::Schema.define(version: 20140401204226) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+  add_index "blogs", ["url"], name: "index_blogs_on_url", unique: true, using: :btree
+>>>>>>> 33f3998dad019bcb02d0b027b32146ae6c9ee869
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",     null: false

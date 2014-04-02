@@ -9,4 +9,9 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Bloggerater::Application.config.secret_key_base = 'e6086211894dd3d2888a898470f7c5bb98f8173335e9cb8a9ab2c296ca31f6257848be70a4fe2405543bb1f2c1c19bf8a1898a4cf7fd72fbf74acbe49b84c7f3'
+
+if Rails.env.development? || Rails.env.test?
+  Bloggerater::Application.config.secret_key_base = 'x' * 128
+else
+  Bloggerater::Application.config.secret_key_base = ENV['SECRET_TOKEN']
+end
