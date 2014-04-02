@@ -11,3 +11,12 @@
 <p><%= @blog.description %></p>
 
 <p><%= link_to 'Blogs Home', blogs_path %></p>
+
+<p>Rate This Blog</p>
+
+<%= simple_form_for [@blog, @rating] do |f| %>
+  <%= f.input :blog_rating, label: "Rating", collection: 1..5 %>
+  <%= f.button :submit, 'Submit Rating' %>
+<% end %>
+
+

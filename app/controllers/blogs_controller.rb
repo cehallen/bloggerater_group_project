@@ -20,8 +20,13 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
-  end
+    @blog = Blog.find(params[:id]) 
+    @user = current_user
+    @rating = Rating.where(user: @user, blog: @blog).first
+    if @rating.nil?
+      @rating = Rating.new
+    end
+  end 
 
   def edit 
     @blog = Blog.find(params[:id])
