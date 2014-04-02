@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  roles = %w(admin user)
-  validates :role, presence: true, inclusion: {in: roles, message: "must be an admin or a user"}
+  has_many :blogs
+
+  ROLES = %w(admin user)
+
+  validates :role, presence: true, inclusion:
+    {in: ROLES, message: "must be an admin or a user"}
 end
