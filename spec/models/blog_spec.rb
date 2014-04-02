@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Blog do
 
   describe "Validation Tests" do
+
     it { should have_valid(:title).when("Interesting post") }
     it { should_not have_valid(:title).when(nil, "") }
 
@@ -12,17 +13,18 @@ describe Blog do
     it { should have_valid(:user).when(User.new) }
     it { should_not have_valid(:user).when(nil) }
 
-    # it 'requires a uer' do
-    #   blog = Blog.new
-    #   blog.user = User.new
-    #   blog.valid?
+    it 'give an error when url is not unique' do
+      blog = Blog.create!(url: "www.url.com", title: "title", user: FactoryGirl.build(:user))
+      
+      
+    end
 
-    #   expect(blog.errors[:user]).not_to include "can't be blank"
-    # end
   end
 
   describe "Association Tests" do
+
     it { should belong_to :user }
+    
   end
 
 
