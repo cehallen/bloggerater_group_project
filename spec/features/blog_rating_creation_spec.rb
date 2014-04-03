@@ -22,6 +22,7 @@ feature 'user trying to make ratings on blog post', %q{
   context 'filling out a rating' do
     it 'successfully submits rating when valid information entered' do
       select '4', from: 'Rating'
+      click_on 'Submit Rating'
       expect(page).to have_content('Rating received')
       expect(@blog.ratings.count).to eq(1)
       save_and_open_page

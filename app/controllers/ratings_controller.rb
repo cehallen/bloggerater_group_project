@@ -7,7 +7,6 @@ class RatingsController < ApplicationController
       .permit(:blog_rating))
     @rating.blog = @blog
     @rating.rater = @rater
-    # binding.pry
     if @rating.save
       redirect_to blog_path(@blog), notice: 'Rating received'
     else
