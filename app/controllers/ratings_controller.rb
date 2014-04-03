@@ -1,21 +1,18 @@
 class RatingsController < ApplicationController
 
   def create
-    @rating = Rating.new()
-      # rater_id: current_user.id, blog_id: params[:blog_id], 
-      # blog_rating: params[:rating][:blog_rating])
+    @rater = current_user
+    @blog = Blog.find(params[:blog_id])
+    @rating = Rating.new(params.require(:rating)
+      .permit(:blog_rating))
+    @rating.blog = @blog
+    @rating.rater = @rater
+    # binding.pry
     if @rating.save
-      redirect_to blogs_path, notice: 'Rating created'
+      redirect_to blog_path(@blog), notice: 'Rating received'
     else
-
+      redirect_to blog_path(@blog), notice: 'Please select a rating'
     end
   end
 
-
-
-  private
-
-  def rating_params
-    params.require(:rating).permit(:blog_id, :blog_rating) #????
-  end
 end

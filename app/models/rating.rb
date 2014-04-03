@@ -5,9 +5,6 @@ class Rating < ActiveRecord::Base
   validates :blog, presence: true
   validates :rater, presence: true
 
-  # validates :blog_id, uniqueness: true
-  # validates :rater_id, uniqueness: true
-
   validates :blog_rating, presence: true, 
     numericality: {
       greater_than_or_equal_to: 1, 
