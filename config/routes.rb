@@ -1,9 +1,11 @@
 Bloggerater::Application.routes.draw do
   devise_for :users
   resources :blogs do
-    resources :reviews do
-      resources :votes
-    end
+    resources :reviews
+  end
+
+  resources :reviews, only: [] do
+    resources :votes, only: [:update, :create]
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

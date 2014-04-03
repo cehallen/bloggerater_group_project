@@ -14,13 +14,21 @@
 <%= render 'blogs/review' %>
 
 <% @reviews.each do |review| %>
+<div class="review">
   <%= review.reviewer.email %>
   <%= review.comment %>
-  <ul>
-    <% [0, 1].each do |boolean| %>
-      <%= thumb(current_user, review, boolean) %>
-    <% end %>
-  </ul>
-<% end %>
+  <div class="score">
+    <%= review.score %>
+  </div>
 
-<%= javascript_include_tag 'thumb' %>
+  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote", "data-type" => "json" }, remote: true do |f| %>
+    <%= f.hidden_field :vote, value: 1 %>
+    <%= f.button :submit, 'Like' %>
+  <% end %>
+
+  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote", "data-type" => "json" }, remote: true do |f| %>
+    <%= f.hidden_field :vote, value: 0 %>
+    <%= f.button :submit, 'Dislike' %>
+  <% end %>
+</div>
+<% end %>

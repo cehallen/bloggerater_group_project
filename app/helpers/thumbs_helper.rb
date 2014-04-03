@@ -15,18 +15,18 @@ module ThumbsHelper
     # var thumbType = thumbClick.attr('thumb-type');
     
     if user_vote.blank? && thumb_type = 0
-      thumb_class_up = 'fa-thumbs-o-up thumb'
+      thumb_class_up = 'fa fa-thumbs-o-up thumb'
     else
-      thumb_class_up = 'fa-thumbs-up thumb'
+      thumb_class_up = 'fa fa-thumbs-up thumb'
     end
 
     if user_vote.blank? && thumb_type = 1
-      thumb_class_down = 'fa-thumbs-o-down thumb'
+      thumb_class_down = 'fa fa-thumbs-o-down thumb'
     else
-      thumb_class_down = 'fa-thumbs-down thumb'  
+      thumb_class_down = 'fa fa-thumbs-down thumb'  
     end
 
-    content_tag(:a, "hello",
+    content_tag(:a, "",
     class: thumb_class_up,
     id: vote_id,
     thumb_type: thumb_type,

@@ -1,4 +1,8 @@
 $(function() {
+  $(".change-vote").on("ajax:success", function(e, data, status, xhr) {
+    $(this).siblings(".score").text(data["score"]);
+  });
+
   $('.thumb').click( function(e) {
     var thumbClick = $(e.target);
     var thumbType = thumbClick.attr('thumb_type');
@@ -12,10 +16,10 @@ $(function() {
 
     if ( voteId === '') {
       requestType = "POST";
-      path = blogId + "/reviews/" + reviewId + "/votes";
+      path = blogId + "/reviews/" + reviewId + "/votes.json";
     } else {
       requestType = "PUT";
-      path = blogId + "/reviews/" + reviewId + "/votes/" + reviewId;
+      path = blogId + "/reviews/" + reviewId + "/votes/" + reviewId + ".json";
     }
 
     thumbSelector(thumbType, voteId);
@@ -37,10 +41,10 @@ var submitVote = function(requestType, path, data) {
 var thumbSelector = function(thumb, voteId) {
   thumb_tag = $('#vote_' + voteId);
   if (thumb === 0) {
-    thumb_tag.addClass('fa-thumbs-up');
-    thumb_tag.removeClass('fa-thumbs-o-up');
+    thumb_tag.addClass('fa fa-thumbs-up');
+    thumb_tag.removeClass('fa fa-thumbs-o-up');
   } else {
-    thumb_tag.addClass('fa-thumbs-down');
-    thumb_tag.removeClass('fa-thumbs-o-down');
+    thumb_tag.addClass('fa fa-thumbs-down');
+    thumb_tag.removeClass('fa fa-thumbs-o-down');
   }
 };
