@@ -1,6 +1,7 @@
 <table>
   <tr>
-    <td><%= link_to @blog.title, @blog.url %></td>
+    <p><%= @blog.title %></p>
+    <p><a href="http://<%= @blog.url%>"><%= @blog.url %></a></p>
     <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
     <td><%= link_to "Delete", blog_path(@blog),
       method: :delete %></td>
@@ -15,6 +16,11 @@
 <% @reviews.each do |review| %>
   <%= review.reviewer.email %>
   <%= review.comment %>
+  <ul>
+    <% [0, 1].each do |boolean| %>
+      <%= thumb(current_user, review, boolean) %>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= javascript_include_tag 'thumb' %>
