@@ -50,6 +50,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'launchy'
+  gem 'email_spec'
 end
 
 # Use ActiveModel has_secure_password
