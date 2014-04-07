@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :reviews, foreign_key: :reviewer_id
   has_many :blogs
+  has_many :ratings, foreign_key: :rater_id
 
   ROLES = %w(admin user)
 
