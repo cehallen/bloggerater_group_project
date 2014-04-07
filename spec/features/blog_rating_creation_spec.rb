@@ -47,16 +47,11 @@ feature 'user trying to make ratings on blog post', %q{
   end
 
   context 'display rating within blog after rating' do
-
-    # it 'shows up on blog show page when rating submitted' do
-    #   select '4', from: 'Rating' 
-    #   click_on 'Rate This Blog'
-    #   expect(page).to have_content('Rating created')
-    #   within(:css, '#user_rating') do
-    #     expect(page).to have_content('4')
-    #   end
-    # end
-
+    it 'shows up on blog show page when rating submitted' do
+      select '4', from: 'Rating' 
+      click_on 'Submit Rating'
+      expect(page).to have_content('Rating received')
+      expect(page).to have_content('Your current rating is 4')
+    end
   end
-
 end

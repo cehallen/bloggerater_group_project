@@ -19,4 +19,6 @@
   <%= f.button :submit, 'Submit Rating' %>
 <% end %>
 
-
+<% if !@rating.blog_rating.nil? %>
+  <p>Your current rating is <%= @rating.blog_rating %></p>
+<% end %>
