@@ -11,8 +11,10 @@ class ReviewsController < ApplicationController
 
     if @review.save
       redirect_to @blog
+      flash[:notice] = "Review Submitted"
     else
       redirect_to '/'
+      flash[:notice] = "Review Submission Failed"
     end
   end
 

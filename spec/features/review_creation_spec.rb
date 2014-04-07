@@ -21,13 +21,18 @@ feature 'user trying to make blog post', %q{
       visit blog_path(@blog)
       fill_in'Review', with: 'I hate the world'
       click_on 'Create Review'
+
       expect(page).to have_content("I hate the world")
+      expect(page).to have_content("Review Submitted")
     end
 
     it 'gives errors if required fields are blank' do
       visit blog_path(@blog)
       fill_in'Review', with: ''
       click_on 'Create Review'
+
+      expect(page).to have_content(@blog.title)
+      expect(page).to have_content("Review Submission Failed")
     end
     
   end

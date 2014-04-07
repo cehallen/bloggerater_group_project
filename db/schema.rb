@@ -71,6 +71,6 @@ ActiveRecord::Schema.define(version: 20140403182556) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["user_id", "review_id"], name: "index_votes_on_user_id_and_review_id", using: :btree
+  add_index "votes", ["user_id", "review_id"], name: "index_votes_on_user_id_and_review_id", unique: true, using: :btree
 
 end

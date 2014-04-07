@@ -10,6 +10,8 @@ So people can read the best reviews} do
 # A user can reverse their vote
 # A user may only vote on a review once
 # Seperate: Sorting Reviews
+# Where is the test for the score method you wrote?
+
   before(:each) do
     sign_in_as(FactoryGirl.create(:user))
   end

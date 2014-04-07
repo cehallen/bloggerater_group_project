@@ -1,7 +1,7 @@
 <table>
   <tr>
     <p><%= @blog.title %></p>
-    <p><a href="http://<%= @blog.url%>"><%= @blog.url %></a></p>
+    <p><%= link_to @blog.url, "http://" + @blog.url %></p>
     <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
     <td><%= link_to "Delete", blog_path(@blog),
       method: :delete %></td>
