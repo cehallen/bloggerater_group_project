@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-
   def index
     @blogs = Blog.all
   end
@@ -13,20 +12,21 @@ class BlogsController < ApplicationController
     @blog.user = current_user
 
     if @blog.save
-      redirect_to blogs_path, notice: 'Blog Added to Listing'
+      redirect_to blogs_path, 
+        notice: 'Blog Added to Listing'
     else
       render :new
     end
   end
 
   def show
-    @blog = Blog.find(params[:id])
-
-
-
-  
-
-
+    @blog = Blog.find(params[:id]) 
+    @user = current_user
+    @rating = Rating.where(rater: @user, blog: @blog)
+      .first
+    if @rating.nil?
+      @rating = Rating.new
+    end
     @reviews = @blog.reviews
     @review = Review.new
     @vote = Vote.new
@@ -39,7 +39,8 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_params)
-      redirect_to blogs_path(@blog), notice: 'Updated successfully'
+      redirect_to blogs_path(@blog), 
+        notice: 'Updated successfully'
     else
       render :edit
     end
@@ -49,7 +50,8 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Deleted successfully' }
+      format.html { redirect_to blogs_url, 
+        notice: 'Deleted successfully' }
       format.json { head :no_content }
     end
   end
@@ -60,6 +62,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :description, :url)
+    params.require(:blog)
+      .permit(:title, :description, :url)
   end
 end

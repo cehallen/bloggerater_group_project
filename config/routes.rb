@@ -1,6 +1,7 @@
 Bloggerater::Application.routes.draw do
   devise_for :users
   resources :blogs do
+    resources :ratings, only: [:create, :update, :destroy]
     resources :reviews
   end
 
