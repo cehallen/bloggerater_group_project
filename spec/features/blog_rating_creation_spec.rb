@@ -53,5 +53,9 @@ feature 'user trying to make ratings on blog post', %q{
       expect(page).to have_content('Rating received')
       expect(page).to have_content('Your current rating is 4')
     end
+
+    it "does not show 'your current rating is X' text if unrated" do
+      expect(page).to_not have_content('Your current rating is')
+    end
   end
 end
