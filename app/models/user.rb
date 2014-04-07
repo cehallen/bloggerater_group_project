@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :votes
+  has_many :reviews, foreign_key: :reviewer_id
   has_many :blogs
 
   ROLES = %w(admin user)

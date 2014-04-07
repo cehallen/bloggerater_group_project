@@ -5,7 +5,9 @@ FactoryGirl.define do
     password "adminqwerty"
   end
 
-  
+  factory :review do
+    comment "hi I love all da blurgz"
+  end  
 
 
 

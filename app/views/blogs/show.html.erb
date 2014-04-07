@@ -1,6 +1,7 @@
 <table>
   <tr>
-    <td><%= link_to @blog.title, @blog.url %></td>
+    <p><%= @blog.title %></p>
+    <p><%= link_to @blog.url, "http://" + @blog.url %></p>
     <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
     <td><%= link_to "Delete", blog_path(@blog),
       method: :delete %></td>
@@ -21,4 +22,26 @@
 
 <% if !@rating.blog_rating.nil? %>
   <p>Your current rating is <%= @rating.blog_rating %></p>
+<% end %>
+
+<%= render 'blogs/review' %>
+
+<% @reviews.each do |review| %>
+<div class="review">
+  <%= review.reviewer.email %>
+  <%= review.comment %>
+  <div class="score">
+    <%= review.score %>
+  </div>
+
+  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote", "data-type" => "json" }, remote: true do |f| %>
+    <%= f.hidden_field :vote, value: 1 %>
+    <%= f.button :submit, 'Like' %>
+  <% end %>
+
+  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote", "data-type" => "json" }, remote: true do |f| %>
+    <%= f.hidden_field :vote, value: 0 %>
+    <%= f.button :submit, 'Dislike' %>
+  <% end %>
+</div>
 <% end %>

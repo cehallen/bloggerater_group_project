@@ -27,7 +27,10 @@ class BlogsController < ApplicationController
     if @rating.nil?
       @rating = Rating.new
     end
-  end 
+    @reviews = @blog.reviews
+    @review = Review.new
+    @vote = Vote.new
+  end
 
   def edit 
     @blog = Blog.find(params[:id])
