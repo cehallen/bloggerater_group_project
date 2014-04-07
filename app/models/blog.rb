@@ -6,4 +6,5 @@ class Blog < ActiveRecord::Base
   belongs_to :user
   has_many :ratings
   has_many :reviews
+  mount_uploader :image_url, ImageUploader
 end

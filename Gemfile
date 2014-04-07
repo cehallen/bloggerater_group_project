@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
-
 gem 'carrierwave'
 
 gem 'kaminari'
