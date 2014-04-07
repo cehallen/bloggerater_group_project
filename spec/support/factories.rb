@@ -18,4 +18,9 @@ FactoryGirl.define do
     association :user, factory: :user
   end
 
+  factory :rating do
+    blog_rating 3
+    association :blog, factory: :blog
+  end
+
 end

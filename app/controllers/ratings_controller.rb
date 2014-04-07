@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-
+  #are these params 'strong'?
   def create
     @rater = current_user
     @blog = Blog.find(params[:blog_id])
@@ -8,10 +8,18 @@ class RatingsController < ApplicationController
     @rating.blog = @blog
     @rating.rater = @rater
     if @rating.save
-      redirect_to blog_path(@blog), notice: 'Rating received'
+      redirect_to blog_path(@blog), 
+        notice: 'Rating received'
     else
-      redirect_to blog_path(@blog), notice: 'Please select a rating'
+      redirect_to blog_path(@blog), 
+        notice: 'Please select a rating'
     end
   end
+
+  # def update
+  #   @rating = Rating.find(params[:id])
+  #   if @rating.update(params(:ra))
+  #   binding.pry
+  # end
 
 end

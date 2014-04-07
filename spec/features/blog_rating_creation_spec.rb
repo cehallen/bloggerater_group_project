@@ -11,8 +11,8 @@ feature 'user trying to make ratings on blog post', %q{
   # * I can only have one rating per blog post, but I can change my rating
   # * I can see my rating on the blog page
 
+  
   before(:each) do
-    # @user = FactoryGirl.create(:user)
     @blog = FactoryGirl.create(:blog)
     @user = @blog.user
     sign_in_as(@user)
@@ -25,22 +25,25 @@ feature 'user trying to make ratings on blog post', %q{
       click_on 'Submit Rating'
       expect(page).to have_content('Rating received')
       expect(@blog.ratings.count).to eq(1)
-      save_and_open_page
     end
 
-    # it 'gives errors if required fields are blank' do
-    #   click_on 'Rate This Blog'
-    #   expect(page).to have_content('Please select a rating')
-    # end
+    it 'gives errors if required fields are blank' do
+      click_on 'Submit Rating'
+      expect(page).to have_content('Please select a rating')
+    end
+  end
 
-    # it 'allows me to change my rating' do
-    #   prev_rating_count = @blog.ratings.count
-    #   select '4', from: 'Rating' 
-    #   click_on 'Rate This Blog'
-    #   expect(page).to have_content('Rating created')
-    #   expect(@blog.ratings.count).to eq(prev_rating_count)
-    # end
-    
+  context 'changing an existing rating.' do
+    it 'allows me to change my rating' do
+      select '4', from: 'Rating'
+      click_on 'Submit Rating'
+
+      prev_rating_count = @blog.ratings.count
+      select '4', from: 'Rating' 
+      click_on 'Submit Rating'
+      expect(page).to have_content('Rating received')
+      expect(@blog.ratings.count).to eq(prev_rating_count)
+    end
   end
 
   context 'display rating within blog after rating' do
