@@ -28,7 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
-gem 'simple_form'
+
 
 gem 'carrierwave'
 
@@ -52,6 +52,8 @@ group :development, :test do
   gem 'launchy'
   gem 'email_spec'
 end
+
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

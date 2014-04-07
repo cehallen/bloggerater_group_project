@@ -29,12 +29,14 @@ ActiveRecord::Schema.define(version: 20140403182556) do
   add_index "blogs", ["url"], name: "index_blogs_on_url", unique: true, using: :btree
 
   create_table "ratings", force: true do |t|
-    t.integer  "rating",     null: false
-    t.integer  "rater_id",   null: false
-    t.integer  "blog_id",    null: false
+    t.integer  "rater_id",    null: false
+    t.integer  "blog_id",     null: false
+    t.integer  "blog_rating", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "ratings", ["rater_id", "blog_id"], name: "index_ratings_on_rater_id_and_blog_id", unique: true, using: :btree
 
   create_table "reviews", force: true do |t|
     t.string   "comment",     null: false
