@@ -3,6 +3,12 @@ $(function() {
     $(this).siblings(".score").text(data["score"]);
   });
 
+$(function() {
+  $(".fa-thumbs-o-up").on("click", function(e) {
+    
+  });
+});
+
   $('.thumb').click( function(e) {
     var thumbClick = $(e.target);
     var thumbType = thumbClick.attr('thumb_type');
