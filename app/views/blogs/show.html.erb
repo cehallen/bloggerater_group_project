@@ -34,7 +34,7 @@
     <%= review.score %>
   </div>
 
-  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote up-vote", "data-type" => "json" }, remote: true do |f| %>
+  <%= simple_form_for [review, review.votes.where(user: current_user).first || review.votes.build], html: { class: "change-vote fa fa-thumbs-o-up", "data-type" => "json" }, remote: true do |f| %>
     <%= f.hidden_field :vote, value: 1 %>
     <%= f.button :submit, 'Like' %>
   <% end %>

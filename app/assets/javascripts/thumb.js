@@ -3,9 +3,10 @@ $(function() {
     $(this).siblings(".score").text(data["score"]);
   });
 
+
 $(function() {
   $(".fa-thumbs-o-up").on("click", function(e) {
-    
+
   });
 });
 
