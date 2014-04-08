@@ -22,8 +22,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id]) 
     @user = current_user
-    @rating = Rating.where(rater: @user, blog: @blog)
-      .first
+    @rating = Rating.where(rater_id: @user, blog: @blog).first
     if @rating.nil?
       @rating = Rating.new
     end

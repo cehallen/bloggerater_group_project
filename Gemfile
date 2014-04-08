@@ -53,6 +53,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'launchy'
   gem 'dotenv-rails'
+  gem 'email_spec'
 end
 
 gem 'simple_form'
