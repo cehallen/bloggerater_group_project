@@ -26,6 +26,15 @@ feature 'user trying to post avater picture', %q{
         expect(@user.blogs.last.image_url).to be_present
       end
 
+      it 'does not take in improper file types' do
+        fill_in 'blog[title]', with: 'A title'
+        fill_in 'blog[url]', with: 'www.blogs.com'
+        attach_file 'blog[image_url]', Rails.root.join('spec/files/garbage.txt')
+        click_on 'Create Blog'
+        expect(page).to have_content("You are not allowed to upload")     
+        expect(page).to have_content("Add Blog to Listing")       
+      end
+
     end
 
   end
