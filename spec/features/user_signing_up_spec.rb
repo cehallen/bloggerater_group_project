@@ -8,21 +8,11 @@ feature 'viewer signing up', %q{
   # I must enter a previously unregistered email
 
   context 'filling out user information' do
-    # before(:each) do
-    #   visit new_user_registration_path
-    #   user = ('a'..'z').to_a.shuffle.pop(20).join
-    #   fill_in "Email", with: "#{user}@shlomo.com"
-    #   fill_in "Password", with: "adminqwerty"
-    #   fill_in "Password confirmation", with: "adminqwerty"
-    #   within "#new_user" do
-    #     click_on "Sign up"
-    #   end
-    # end
 
     it 'allows you to sign up when you give valid entries' do
       visit new_user_registration_path
-      user = ('a'..'z').to_a.shuffle.pop(20).join
-      fill_in "Email", with: "#{user}@shlomo.com"
+      user = FactoryGirl.build(:user)
+      fill_in "Email", with: user.email
       fill_in "Password", with: "adminqwerty"
       fill_in "Password confirmation", with: "adminqwerty"
       within "#new_user" do
@@ -48,8 +38,8 @@ feature 'viewer signing up', %q{
 
     it "gives you an error message when you don't give it an password" do
       visit new_user_registration_path
-      user = ('a'..'z').to_a.shuffle.pop(20).join
-      fill_in "Email", with: "#{user}@shlomo.com"
+      user = FactoryGirl.build(:user)
+      fill_in "Email", with: user.email
       fill_in "Password", with: ""
       fill_in "Password confirmation", with: ""
       within "#new_user" do
@@ -78,8 +68,8 @@ feature 'viewer signing up', %q{
 
     it 'takes you to the sign up page when you give invalid info' do
       visit new_user_registration_path
-      user = ('a'..'z').to_a.shuffle.pop(20).join
-      fill_in "Email", with: "#{user}@shlomo.com"
+      user = FactoryGirl.build(:user)
+      fill_in "Email", with: user.email
       fill_in "Password", with: ""
       fill_in "Password confirmation", with: ""
       within "#new_user" do
