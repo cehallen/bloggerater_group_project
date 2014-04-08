@@ -6,7 +6,7 @@ $(function() {
 
 $(function() {
   $(".fa-thumbs-o-up").on("click", function(e) {
-
+    $(this).removeClass(".fa-thumbs-o-up")
   });
 });
 
