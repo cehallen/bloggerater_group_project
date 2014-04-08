@@ -50,6 +50,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'launchy'
+  gem 'email_spec'
 end
 
 gem 'simple_form'

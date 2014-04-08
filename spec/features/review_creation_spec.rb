@@ -5,11 +5,11 @@ feature 'user trying to make blog post', %q{
   I can create a post for a blog website
   So people can review, rate, and vote on it
   } do
+# AC:
+# I have to enter in a email
+# I have to enter in a password
+# What happens when you're not signed in?
 
-  # AC:
-  # I have to enter in a email
-  # I have to enter in a password
-  # What happens when you're not signed in?
   before(:each) do
     sign_in_as(FactoryGirl.create(:user))
     @blog = FactoryGirl.create(:blog)
