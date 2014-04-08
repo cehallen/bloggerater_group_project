@@ -21,6 +21,10 @@
     <%= f.text_field :description %>
   </div>
   <div>
+    <%= f.label 'Upload Blog Site Image' %>
+    <%= f.file_field :image_url %>
+  </div> 
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
