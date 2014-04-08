@@ -18,6 +18,7 @@ I can update my post
       click_on "Sign in"
     end 
     @blog = FactoryGirl.create(:blog)
+    
   end
 
   context "editing a page that has been posted" do

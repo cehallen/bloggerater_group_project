@@ -45,15 +45,15 @@ class BlogsController < ApplicationController
     end
   end
 
-  def destroy
-    @blog = Blog.find(params[:id])
-    @blog.destroy
-    respond_to do |format|
-      format.html { redirect_to blogs_url, 
-        notice: 'Deleted successfully' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @blog = Blog.find(params[:id])
+  #   @blog.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to blogs_url, 
+  #       notice: 'Deleted successfully' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   def search
   end

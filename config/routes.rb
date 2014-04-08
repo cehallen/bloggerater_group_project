@@ -8,6 +8,12 @@ Bloggerater::Application.routes.draw do
   resources :reviews, only: [] do
     resources :votes, only: [:update, :create]
   end
+
+
+  namespace :admin do 
+    resources :blogs
+    resources :reviews
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
