@@ -32,6 +32,7 @@ gem 'devise'
 gem 'carrierwave'
 
 gem "fog", "~> 1.3.1"
+gem 'mini_magick'
 
 gem 'kaminari'
 
@@ -51,6 +52,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 gem 'simple_form'

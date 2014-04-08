@@ -2,4 +2,3 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Rails.application
-use Rack::Static, :urls => ['/carrierwave'], :root => 'tmp' # adding this line
