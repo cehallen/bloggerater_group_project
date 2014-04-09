@@ -1,7 +1,7 @@
 <%= form_for [@blog, @review] do |f| %>
   <div class="field">
     <%= f.label :comment, 'Review' %><br />
-    <%= f.text_field :comment %>
+    <%= f.text_area :comment %>
   </div>
   <div class="actions">
     <%= f.submit %>

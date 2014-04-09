@@ -15,7 +15,7 @@ feature 'viewing a blog', %Q{
   end
 
   context "going from index to viewing blogs page" do
-    it "shows the title and title is also a link, and shows description if present" do
+    it "shows the title and shows description if present" do
       visit blogs_path
 
       click_on 'Moderation Pays Off for a Far-Right Party in France'
