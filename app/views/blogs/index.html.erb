@@ -1,6 +1,15 @@
-<h1> List of Blogs </h1>
-<ul>
-  <lu><% @blogs.each do |blog| %></li>
-  <lu><%= link_to blog.title, blog_path(blog) %></li>
-  <li><% end %></li>
-</ul>
+<div class="row">
+  <h1> List of Blogs </h1>
+</div>
+
+<div class="row">
+  <ul>
+    <lu><% @blogs.each do |blog| %></li>
+    <lu><%= link_to blog.title, blog_path(blog) %></li>
+    <li><% end %></li>
+  </ul>
+</div>
+
+<div class="row">
+  <p><%= link_to "Add a Blog", new_blog_path %></p>
+</div>
