@@ -57,7 +57,7 @@ class BlogsController < ApplicationController
 
   def search
     query = "%#{params[:Query]}%"
-    @blogs = Blog.where('title like ? or description like ? or url like ?',query, query, query)
+    @blogs = Blog.where('title like :match or description like :match or url like :match', match: query)
   end
 
   private
