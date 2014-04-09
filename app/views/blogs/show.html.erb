@@ -2,11 +2,12 @@
   <tr>
     <p><%= @blog.title %></p>
     <p><%= link_to @blog.url, "http://" + @blog.url %></p>
-    <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
-    <td><%= link_to "Delete", blog_path(@blog),
-      method: :delete %></td>
+    <% if current_user.id == @blog.user_id %>
+      <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
+      <td><%= link_to "Delete", blog_path(@blog),
+        method: :delete %></td>
+    <% end %>
   </tr>
-   
 </table>
 
 <%= image_tag @blog.image_url.to_s %>  
