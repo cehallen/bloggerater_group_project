@@ -17,7 +17,7 @@ I can update my post
     within "#new_user" do
       click_on "Sign in"
     end 
-    @blog = FactoryGirl.create(:blog)
+    @blog = FactoryGirl.create(:blog, user: @user)
   end
 
   context "editing a page that has been posted" do
