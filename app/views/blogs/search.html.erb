@@ -1,7 +1,21 @@
-<% @blogs.each do |blog| %>
-    <p><%= blog.title %></p>
-    <p><%= link_to blog.url, "http://" + blog.url %></p>
-    <span><%= link_to "Info", blog_path(blog) %></span> |     
-    <span><%= link_to "Edit", edit_blog_path(blog) %></span> | 
-    <span><%= link_to "Delete", blog_path(blog), method: :delete %></span>
+<h1>Search Results</h1>
+
+<br>
+
+<% if @blogs.empty? %>
+
+  <p>No results found.</p>
+
+<% else %>
+
+  <p><%= "#{@blogs.count} result(s) found." %></p>
+
+  <% @blogs.each do |blog| %>
+      <p><%= blog.title %></p>
+      <p><%= link_to blog.url, "http://" + blog.url %></p>
+      <span><%= link_to "Info", blog_path(blog) %></span> |     
+      <span><%= link_to "Edit", edit_blog_path(blog) %></span> | 
+      <span><%= link_to "Delete", blog_path(blog), method: :delete %></span>
+  <% end %>
+
 <% end %>
