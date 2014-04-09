@@ -7,4 +7,5 @@ class Blog < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
   mount_uploader :image_url, ImageUploader
+  paginates_per 5
 end
