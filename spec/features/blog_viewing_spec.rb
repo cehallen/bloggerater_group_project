@@ -17,7 +17,6 @@ feature 'viewing a blog', %Q{
   context "going from index to viewing blogs page" do
     it "shows the title and shows description if present" do
       visit blogs_path
-
       click_on 'Moderation Pays Off for a Far-Right Party in France'
 
       expect(page).to have_content("Moderation Pays Off for a Far-Right Party in France")
