@@ -3,6 +3,7 @@ Bloggerater::Application.routes.draw do
   resources :blogs do
     resources :ratings, only: [:create, :update, :destroy]
     resources :reviews
+    get 'search', on: :collection
   end
 
   resources :reviews, only: [] do
