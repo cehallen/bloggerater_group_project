@@ -1,0 +1,6 @@
+<h1> List of Reviews by Blog </h1>
+<ul>
+  <lu><% @reviews.each do |review| %></li>
+  <lu><%= link_to review.blog.title, admin_review_path(review) %></li>
+  <li><% end %></li>
+</ul>
