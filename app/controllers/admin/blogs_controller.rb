@@ -1,7 +1,7 @@
 module Admin
   class BlogsController < ApplicationController
+    before_action :authorized_user
 
-    before_action :authorize_user
     def index
       @blogs = Blog.order(created_at: :desc)
     end
