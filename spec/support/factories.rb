@@ -8,6 +8,7 @@ FactoryGirl.define do
   factory :review do
     comment "hi I love all da blurgz"
     association :reviewer, factory: :user
+    association :blog, factory: :blog
   end  
 
   factory :blog do

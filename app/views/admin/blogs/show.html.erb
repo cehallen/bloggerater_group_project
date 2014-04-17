@@ -1,0 +1,9 @@
+<table>
+  <tr>
+    <p><%= @blog.title %></p>
+    <p><%= link_to @blog.url, "http://" + @blog.url %></p>x
+    <td><%= link_to "Delete", admin_blog_path(@blog),
+      method: :delete %></td>
+  </tr>
+   
+</table>
