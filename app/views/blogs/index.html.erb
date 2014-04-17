@@ -1,7 +1,20 @@
+
 <h1> List of Blogs </h1>
-<ul>
-  <lu><% @blogs.each do |blog| %></li>
-  <lu><%= link_to blog.title, blog_path(blog) %></li>
-  <li><% end %></li>
-</ul>
-<%= paginate @blogs %>
+
+<table>
+  <thread>
+    <tr>
+      <th width="200">Title</th>
+      <th width="750">Description</th>
+      <th width="50">Average Rating</th>
+    </tr>
+  </thread>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= link_to blog.title, blog_path(blog) %></td>
+        <td><%= truncate(blog.description, length: 225) %></td>
+        <td></td>
+      </tr>
+    <% end %>
+    <%= paginate @blogs %>
+</table>
