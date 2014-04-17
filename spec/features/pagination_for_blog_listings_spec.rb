@@ -16,15 +16,15 @@ So the page doesn't have to load too much info at a time
       FactoryGirl.create(:blog)
     end
   end
+  
   context 'pagination' do
 
-    it 'only displays 5 blogs postings a page' do
+    it 'displays the 5 most recent blog posts' do
       visit '/'
       expect(page).to have_content("Da Blurg")
       FactoryGirl.create(:blog)
       visit '/'
       expect(page).to_not have_content("Da Blurg")
-      save_and_open_page
     end
 
   end
