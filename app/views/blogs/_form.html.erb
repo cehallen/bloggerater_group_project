@@ -18,13 +18,13 @@
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div>
     <%= f.label 'Upload Blog Site Image' %>
     <%= f.file_field :image_url %>
   </div> 
   <div>
-    <%= f.submit %>
+    <%= f.submit class: 'button tiny' %>
   </div>
 <% end %>

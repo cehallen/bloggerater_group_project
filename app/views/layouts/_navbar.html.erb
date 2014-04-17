@@ -1,9 +1,9 @@
-<div class="sticky">
+<div class="sticky contain-to-grid">
   <nav class="top-bar" data-topbar>
 
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">BloggeRater</a></h1>
+        <h1><a href="/"><em>BloggeRater</em></a></h1>
       </li>
     </ul>
 
@@ -16,6 +16,10 @@
           <li class="active"><%= link_to "Sign Up", new_user_registration_path%></li>
           <li class="active"><%= link_to "Sign In", new_user_session_path %></li>
         <%end%>
+      </ul>
+
+      <ul class="left">
+        <li><%= link_to "Add a Blog", new_blog_path %></li>
       </ul>
 
       <span class="has-form">
@@ -35,6 +39,7 @@
       <span class="has-form">
 
       </span>
+
     </section>
 
   </nav>

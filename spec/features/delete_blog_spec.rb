@@ -15,7 +15,7 @@ I can delete my post
     within "#new_user" do
       click_on "Sign in"
     end 
-    @blog = FactoryGirl.create(:blog)
+    @blog = FactoryGirl.create(:blog, user: @user)
   end
 
   context "deleting a page that has been posted" do
