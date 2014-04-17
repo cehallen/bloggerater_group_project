@@ -21,7 +21,6 @@ feature 'viewing a blog', %Q{
       click_on 'Moderation Pays Off for a Far-Right Party in France'
 
       expect(page).to have_content("Moderation Pays Off for a Far-Right Party in France")
-      expect(page).to have_content("http://www.nytimes.com/2014/04/02/world/europe/moderation-pays-off-for-a-far-right-party-in-france.html?hp&_r=0")  
     end
   end
 

@@ -3,10 +3,17 @@ Bloggerater::Application.routes.draw do
   resources :blogs do
     resources :ratings, only: [:create, :update, :destroy]
     resources :reviews
+    get 'search', on: :collection
   end
 
   resources :reviews, only: [] do
     resources :votes, only: [:update, :create]
+  end
+
+
+  namespace :admin do 
+    resources :blogs
+    resources :reviews
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

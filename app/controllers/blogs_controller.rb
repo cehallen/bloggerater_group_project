@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.all
+    @blogs = Blog.order(created_at: :desc).page params[:page]
   end
 
   def new
@@ -56,6 +56,8 @@ class BlogsController < ApplicationController
   end
 
   def search
+    query = "%#{params[:Query]}%"
+    @blogs = Blog.where('title like :match or description like :match or url like :match', match: query)
   end
 
   private
