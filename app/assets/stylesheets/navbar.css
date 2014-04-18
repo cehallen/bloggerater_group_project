@@ -1,0 +1,51 @@
+.rotate {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  /* Should be unset in IE9+ I think. */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.title {
+  text-shadow: 1px 1px #C3C9C0;
+}
+
+.add_blog {
+  text-shadow: 1px 1px #C3C9C0;
+  color: red;
+  text-decoration: none;
+  border-radius: 5px 10px 5px;
+  padding-left: 10px; 
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 10px red;
+  background-color: white;
+  float: right;
+}
+
+.bar {
+  background-color: #000000;
+  border: 10px red;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+  padding-right: 5px;
+}

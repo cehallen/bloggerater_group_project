@@ -1,16 +1,19 @@
-<div class="sticky contain-to-grid">
-  <nav class="top-bar" data-topbar>
+<div class="sticky">
+  <nav class="bar top-bar" data-topbar>
 
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/"><em>BloggeRater</em></a></h1>
+      <li class="title name">
+        <h1><a href="/"><img src="/bloggerater_logo.png" class='star left'>BloggeRater</a></h1>
       </li>
+    </ul>
+
+    <ul class="add_blog">
+      <li class=""><%= link_to "+", new_blog_path %></li>
     </ul>
 
     <section class="top-bar-section">
       <ul class="right">
         <% if user_signed_in? %>
-          <li class="active"><%= current_user.email %></li>
           <li class="active"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li class="active"><%= link_to "Sign Up", new_user_registration_path%></li>
@@ -18,29 +21,21 @@
         <%end%>
       </ul>
 
-      <ul class="left">
-        <li><%= link_to "Add a Blog", new_blog_path %></li>
-      </ul>
-
-      <span class="has-form">
-        <%= form_tag(search_blogs_path, method: :get, class: 'large-3 small-3 columns') do %>
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-               <%= text_field_tag 'Query', nil, class: '' %>
-            </div>
-            <div class="large-4 small-3 columns">
-              <%= submit_tag 'Search', class: 'alert button expand' %>
-            </div>
-          </div>
-        <% end %>
-      </span>
-              
-
-      <span class="has-form">
-
-      </span>
 
     </section>
+
+    <span class="has-form">
+      <%= form_tag(search_blogs_path, method: :get, class: 'large-3 small-3 columns') do %>
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+             <%= text_field_tag 'Query', nil, class: '' %>
+          </div>
+          <div class="large-4 small-3 columns">
+            <%= submit_tag 'Search', class: 'alert button expand' %>
+          </div>
+        </div>
+      <% end %>
+    </span>
 
   </nav>
 </div>
