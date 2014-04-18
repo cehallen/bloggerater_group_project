@@ -1,0 +1,25 @@
+#index-box h5 {
+  text-align: center;
+}
+
+.image-container {
+  padding: 2px;
+  border: 1px solid #DEDEDE;
+  border-radius: 3px;
+  background-color: #DED4DE;
+}
+
+.image-container #index-image {
+  width: 100%;
+  height: auto;
+}
+
+.image-title-container {
+  padding-right: 10px;
+  float: left;
+}
+
+/*.image-description-container {
+  padding: 2px;
+  float: left;
+}*/
