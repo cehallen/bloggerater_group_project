@@ -1,8 +1,7 @@
 
 
-#content, html#index, body#index-box {
+#content, html#index-box, body#index-box {
     height: 98%;
-    /*background-color: #DCF7F7;*/
     background-color: #4C4C5D;
     margin-top: 10px;
 }
