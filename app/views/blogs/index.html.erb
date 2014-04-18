@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body id="index-box">
   <span class="notice"><%= notice %></span>
   <span class="alert"><%= alert %></span>
 
@@ -26,6 +26,7 @@
 
       <% @blogs.each do |blog| %>
         <ul>
+          <li><%= image_tag blog.image_url.to_s %></li>
           <li><%= link_to blog.title, blog_path(blog) %></li>
           <li><%= truncate(blog.description, length: 225) %></li>
           <li></li>

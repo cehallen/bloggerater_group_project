@@ -1,8 +1,6 @@
-#outer-box {
-    border: 1px;
-}
 
-#content, html, body {
+
+#content, html#index, body#index-box {
     height: 98%;
     /*background-color: #DCF7F7;*/
     background-color: #4C4C5D;
