@@ -23,6 +23,8 @@
   </div>
 
   <div id = "middle" >
+    <%= render 'layouts/searchbar'%>
+    <div id = "text" >
       <h5> Recently Posted Blogs </h5>
 
 
@@ -39,9 +41,11 @@
         </div>
       <% end %>
       <%= paginate @blogs %>
+    </div>
   </div>
 
   <div id="right">
+
     <% if !@reviews.nil? %>
       <% @reviews.each do |review| %>
         <div>
@@ -54,6 +58,9 @@
       <%#= paginate @reviews %>
     <%# end %>
     text text text
+
+    <%= render 'layouts/right_bar' %>
+    
   </div>
 
 </div>
