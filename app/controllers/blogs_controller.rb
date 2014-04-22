@@ -1,7 +1,11 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.order(created_at: :desc).page params[:page]
+    @reviews = Review.order(created_at: :desc)#.page params[:page]
     render layout: false
+
+    
+    # binding.pry
   end
 
   def new
