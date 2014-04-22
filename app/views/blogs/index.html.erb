@@ -1,20 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="Icon" href="/bloggerater_logo.png">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>  
+</head>
 
-<h1> List of Blogs </h1>
+<body id="index-box">
+  <span class="notice"><%= notice %></span>
+  <span class="alert"><%= alert %></span>
 
-<table>
-  <thread>
-    <tr>
-      <th width="200">Title</th>
-      <th width="750">Description</th>
-      <th width="50">Average Rating</th>
-    </tr>
-  </thread>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= link_to blog.title, blog_path(blog) %></td>
-        <td><%= truncate(blog.description, length: 225) %></td>
-        <td></td>
-      </tr>
+
+  <div id="content" class="row outer-box" >
+
+  <div id="left">
+    <%= render 'layouts/navbar'%>
+    <div id="text">
+      <h3 class="subheader">About Us:</h3>
+      <p>Click the + button above to add a blog site for user review and voting. We are a rating website for blogs, where the highest rated and most reviewed blogs can be found and therefore get more traffic. Also, this site allows people to easily find the best blog sites on the internet.</p>
+      <br>
+      <h3 class="subheader">Get in Touch:</h3>
+      <p>hello@bloggerater.com</p>
+      <p>1-212-234-5432</p>
+      <br>
+      <p>Bloggerater, Inc.</p>
+      <p>533 Harrison Ave</p>
+      <p>Boston, MA 02110</p>
+    </div>
+  </div>
+
+  <div id = "middle" >
+    <%= render 'layouts/searchbar'%>
+    <div id = "text" >
+      <h5> Recently Posted Blogs </h5>
+
+
+      <% @blogs.each do |blog| %>
+        <div class="image-container">
+          <div class="index-image">
+            <%= link_to (image_tag blog.image_url.to_s),
+              blog_path(blog) %> 
+          </div>
+          <div class="image-title-container">
+            <%= link_to blog.title, blog_path(blog) %>
+          </div>
+          <%= truncate(blog.description, length: 115) %>
+        </div>
+      <% end %>
+      <%= paginate @blogs %>
+    </div>
+  </div>
+
+  <div id="right">
+    <%= render 'layouts/right_bar' %>
+
+    <% if !@reviews.nil? %>
+      <% @reviews.each do |review| %>
+        <div class="review-text">
+          <%= review.blog.title %><br>
+          <%= link_to truncate(review.comment, length: 100), blog_path(review.blog) %>
+          <%#= "On: #{review.created_at}" %>
+        </div>
+      <% end %>
     <% end %>
-    <%= paginate @blogs %>
-</table>
+  </div>
+
+</div>
+  
+</body>
+
+
+</html>
+

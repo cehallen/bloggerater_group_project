@@ -143,7 +143,7 @@ select {
         display: table; }
       .row .row.collapse:after {
         clear: both; }
-
+        
 .column,
 .columns {
   padding-left: 0.9375rem;

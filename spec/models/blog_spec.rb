@@ -13,6 +13,8 @@ describe Blog do
     it { should have_valid(:user).when(User.new) }
     it { should_not have_valid(:user).when(nil) }
 
+    it { should_not have_valid(:image_url).when(nil) }
+
     it 'give an error when url is not unique' do
       blog = Blog.create!(url: "www.url.com", title: "title", user: FactoryGirl.build(:user))
     end

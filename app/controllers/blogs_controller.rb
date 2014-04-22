@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.order(created_at: :desc).page params[:page]
+    @reviews = Review.order(created_at: :desc).limit(15)
+    render layout: false
   end
 
   def new

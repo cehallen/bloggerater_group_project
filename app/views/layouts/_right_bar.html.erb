@@ -1,0 +1,23 @@
+<div class="sticky">
+  <nav class="top-bar" data-topbar>
+
+    <section class="top-bar-section">
+
+      <ul class="title-area">
+        <li class="title name">
+          <h1><a href="/">Recent Reviews</a></h1>
+        </li>
+      </ul>
+
+      <ul class="right">
+        <% if user_signed_in? %>
+          <li class="active"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="active"><%= link_to "Sign In", new_user_session_path %></li>
+        <%end%>
+      </ul>
+
+    </section>
+
+  </nav>
+</div>
