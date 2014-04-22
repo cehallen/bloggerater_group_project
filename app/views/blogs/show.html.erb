@@ -1,35 +1,40 @@
-<table>
-  <tr>
-    <p><%= @blog.title %></p>
+<div class="row">
+  <div class="small-12 columns text-center">
+    <h1><%= @blog.title %></h1>
     <p><%= link_to @blog.url, "http://" + @blog.url %></p>
-    <% if user_signed_in? %>
-      <% if current_user.id == @blog.user_id %>
-        <td><%= link_to "Edit", edit_blog_path(@blog) %></td>
-        <td><%= link_to "Delete", blog_path(@blog),
-          method: :delete %></td>
+    <div class="row">
+      <div class="small-9 small-centered large-centered columns text-center"><%= image_tag @blog.image_url.to_s %>
+      </div>
+    </div>
+  </div>
+<% if user_signed_in? %>
+        <% if current_user.id == @blog.user_id %>
+        <div class="row">
+          <div class="small-9 small-centered large-centered columns">
+            <div class = "left"><%= link_to "Edit", edit_blog_path(@blog) %></div>
+            <div class = "right"><%= link_to "Delete", blog_path(@blog),
+             method: :delete %></div>
+           </div>
+        </div>
       <% end %>
     <% end %>
-  </tr>
-</table>
-
-<%= image_tag @blog.image_url.to_s %>  
-
-<p><%= @blog.description %></p>
-
-<p><%= link_to 'Blogs Home', blogs_path %></p>
-
-<p>Rate This Blog</p>
-
+<div class="small-9 small-centered large-centered columns text-center"><p><%= @blog.description %></p></div>
+<div class="row">
+  <div class="large-6 columns"><p>Rate This Blog</p>
 <%= simple_form_for [@blog, @rating] do |f| %>
   <%= f.input :blog_rating, label: "Rating", collection: 1..5 %>
-  <%= f.button :submit, 'Submit Rating', class: 'round' %>
+  <%= f.button :submit, 'Submit Rating' %>
 <% end %>
 
 <% if !@rating.blog_rating.nil? %>
   <p>Your current rating is <%= @rating.blog_rating %></p>
 <% end %>
+</div>
+  <div class="large-6 columns">
+    <p>Review This Blog</p><%= render 'blogs/review' %></div>
+</div>
 
-<%= render 'blogs/review' %>
+<p><%= link_to 'Blogs Home', blogs_path %></p>
 
 <% @reviews.each do |review| %>
   <div class="review">
@@ -38,7 +43,7 @@
 
     <% if review.votes.where(user: current_user).blank? %>
       <% up_vote = "fa-thumbs-o-up" %>
-      <% down_vote = "fa-thumbs-o-down" %>      
+      <% down_vote = "fa-thumbs-o-down" %>
     <% elsif review.votes.where(user: current_user).first.vote == true %>
       <% up_vote = "fa-thumbs-up" %>
       <% down_vote = "fa-thumbs-o-down" %>
@@ -62,6 +67,5 @@
       <%= f.button :submit, 'Dislike', class: 'round small' %>
     <% end %>
     </div>
-
   </div>
 <% end %>

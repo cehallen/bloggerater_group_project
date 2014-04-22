@@ -39,11 +39,12 @@ body {
   font-size: 100%; }
 
 body {
-  background: white;
+  background-image:url(crumpled-paper.jpeg);
+  /*background: white;*/
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;

@@ -1,9 +1,4 @@
-<%= form_for [@blog, @review] do |f| %>
-  <div class="field">
-    <%= f.label :comment, 'Review' %><br />
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
+<%= simple_form_for [@blog, @review] do |f| %>
+    <%= f.input :comment, label: 'Review' %>
     <%= f.submit class: 'button' %>
-  </div>
 <% end %>
