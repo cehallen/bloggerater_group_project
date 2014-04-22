@@ -45,22 +45,17 @@
   </div>
 
   <div id="right">
+    <%= render 'layouts/right_bar' %>
 
     <% if !@reviews.nil? %>
       <% @reviews.each do |review| %>
-        <div>
+        <div class="review-text">
+          <%= review.blog.title %><br>
           <%= link_to truncate(review.comment, length: 100), blog_path(review.blog) %>
-          <%= "Reviewed on: #{review.created_at}" %>
+          <%= "On: #{review.created_at}" %>
         </div>
       <% end %>
     <% end %>
-    <%# if !@reviews.nil? %>
-      <%#= paginate @reviews %>
-    <%# end %>
-    text text text
-
-    <%= render 'layouts/right_bar' %>
-    
   </div>
 
 </div>
