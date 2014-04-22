@@ -52,7 +52,7 @@
         <div class="review-text">
           <%= review.blog.title %><br>
           <%= link_to truncate(review.comment, length: 100), blog_path(review.blog) %>
-          <%= "On: #{review.created_at}" %>
+          <%#= "On: #{review.created_at}" %>
         </div>
       <% end %>
     <% end %>
