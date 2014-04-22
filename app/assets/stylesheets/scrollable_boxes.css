@@ -24,6 +24,11 @@
     padding-bottom: 5px;
 }
 
+.subheader {
+    font-style: italic;
+    color: black;
+}
+
 #middle {
     width: 32%;
     background: white;
