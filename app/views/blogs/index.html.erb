@@ -30,7 +30,7 @@
 
       <% @blogs.each do |blog| %>
         <div class="image-container">
-          <div id="index-image">
+          <div class="index-image">
             <%= link_to (image_tag blog.image_url.to_s),
               blog_path(blog) %> 
           </div>

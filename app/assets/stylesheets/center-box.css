@@ -9,7 +9,7 @@
   background-color: #DED4DE;
 }
 
-.image-container #index-image {
+.image-container .index-image {
   width: 100%;
   height: auto;
 }
